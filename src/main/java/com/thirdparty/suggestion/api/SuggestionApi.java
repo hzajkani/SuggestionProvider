@@ -21,8 +21,7 @@ public class SuggestionApi {
 
     @GetMapping("/product/{id}/{name}/{category}")
     public List<Product> productSuggestion(@PathVariable("id") Long id, @PathVariable("name") String name, @PathVariable("category") String category) {
-        List<Product> productList = productService.productSuggestion(category);
 
-        return productList;
+        return productService.productSuggestionWithCategory(category);
     }
 }

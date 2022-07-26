@@ -15,7 +15,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> productSuggestion(String category) {
+    public List<Product> productSuggestionWithCategory(String category) {
         return productRepository.productSuggestion(category);
     }
 
