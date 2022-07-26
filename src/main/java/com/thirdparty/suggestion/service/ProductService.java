@@ -19,4 +19,7 @@ public class ProductService {
         return productRepository.productSuggestion(category);
     }
 
+    public List<Product> productSuggestionDefaultImplementation() {
+        return productRepository.productSuggestion("food");
+    }
 }

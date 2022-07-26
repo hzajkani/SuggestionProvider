@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.apache.logging.log4j.util.Strings.isNotEmpty;
+
 @RestController
 @RequestMapping("/suggestion")
 public class SuggestionApi {
@@ -22,6 +24,8 @@ public class SuggestionApi {
     @GetMapping("/product/{id}/{name}/{category}")
     public List<Product> productSuggestion(@PathVariable("id") Long id, @PathVariable("name") String name, @PathVariable("category") String category) {
 
-        return productService.productSuggestionWithCategory(category);
+        if ((id != null) && isNotEmpty(name) && isNotEmpty(category)) {
+            return productService.productSuggestionWithCategory(category);
+        } else return productService.productSuggestionDefaultImplementation();
     }
 }
